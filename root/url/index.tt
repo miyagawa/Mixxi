@@ -36,7 +36,7 @@ function callback(error) {
 
 <script>
 dojo.byId('alias').onkeyup = function() {
-  if (dojo.byId('alias').value.length >= 2) {
+  if (dojo.byId('alias').value.length > 0) {
     validateForm();
   }
 };
