@@ -44,6 +44,16 @@ sub u : Global {
     }
 }
 
+sub id : Global {
+    my($self, $c) = @_;
+    my $id = $c->req->args->[0];
+    if ($id =~ /^\d+$/) {
+        $c->res->redirect("http://mixi.jp/show_friend.pl?id=" . $id);
+    } else {
+        $c->res->redirect($c->uri_for('/url'));
+    }
+}
+
 sub default : Private {
     my($self, $c) = @_;
 
