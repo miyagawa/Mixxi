@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>mixxi.jp</title>
+<style type="text/css">
+h1,h2 { font-size: 2em }
+h3 { font-size: 1.5em }
+body,input { font-size: 12px; font-family: trebuchet MS }
+input { background: #fff }
+.description { }
+.description .url {}
+.error { color: #f00 }
+
+</style>
+<script src="[% c.uri_for('/static/dojo/dojo.js') %]"></script>
+</head>
+<body>
+<h1>mixxi.jp: tinyURL for mixi.jp</h1>

@@ -1,0 +1,9 @@
+---
+name: Mixxi
+tinyurl_base: http://rock:3000/
+default_view: TT
+View::TT:
+  TEMPLATE_EXTENSION: .tt
+View::JSON:
+  driver: JSON::Syck
+  expose_stash: json_data
