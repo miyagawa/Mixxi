@@ -16,7 +16,9 @@ input { background: #fff }
 ul { margin-left: 1em; list-style-type: none; margin-top: 0 }
 #hint { margin-top: 3em }
 </style>
+[% IF dojo -%]
 <script src="[% c.uri_for('/static/dojo/dojo.js') %]"></script>
+[% END -%]
 </head>
 <body>
 <h1>mixxi.jp: tinyURL for mixi.jp</h1>

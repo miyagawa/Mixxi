@@ -1,4 +1,4 @@
-[% INCLUDE head.tt %]
+[% INCLUDE head.tt dojo = 1 %]
 
 <script language="JavaScript">
 dojo.require('dojo.io.*');
