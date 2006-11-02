@@ -57,14 +57,16 @@ sub id : Global {
 sub default : Private {
     my($self, $c) = @_;
 
-    my $alias = $c->req->args->[0];
-    my $rs = $c->model('DBIC::Url')->search(alias => $alias);
+    eval {
+        my $alias = $c->req->args->[0] or die "No alias";
+        my $rs = $c->model('DBIC::Url')->search(alias => $alias);
+        $rs->count or die "No url matched $alias";
+        $c->res->redirect($rs->first->url);
+    };
 
-    unless ($rs->count) {
+    if ($@) {
         return $c->res->redirect($c->uri_for('/url'));
     }
-
-    $c->res->redirect($rs->first->url);
 }
 
 =head2 end

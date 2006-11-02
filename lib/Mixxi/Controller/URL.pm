@@ -33,7 +33,7 @@ sub create : Local {
     my $alias = $c->req->param('alias');
 
     if ($alias && !$self->validate_alias($c, $alias)) {
-        $c->stash->{error} = 'alias is taken';
+        $c->stash->{error} = 'alias is taken or invalid';
         $c->stash->{template} = 'url/index.tt';
         return;
     }
