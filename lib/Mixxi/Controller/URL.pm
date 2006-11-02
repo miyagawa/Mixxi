@@ -29,6 +29,8 @@ sub index : Private {
 sub create : Local {
     my($self, $c) = @_;
 
+    die;
+
     my $url   = $c->req->param('url');
     my $alias = $c->req->param('alias');
 
