@@ -7,7 +7,7 @@ Long URL: [% url.url | html %]<br />
 Short URL: <a href="[% c.uri_for('/') %][% url.canon_path | html %]">[% c.uri_for('/') %][% url.canon_path | html %]</a></p>
 
 <p>[% SET qr = c.uri_for('/qr/') _ url.canon_path -%]
-<a href="[% qr | html %]"><img src="[% qr | html %]" style="border:0" /></p>
+<a href="[% qr | html %]"><img src="[% qr | html %]" style="border:0" /></a></p>
 
 <script language="JavaScript">
 var timer = 10;
