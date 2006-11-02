@@ -61,7 +61,18 @@ sub default : Private {
         my $alias = $c->req->args->[0] or die "No alias";
         my $rs = $c->model('DBIC::Url')->search(alias => $alias);
         $rs->count or die "No url matched $alias";
-        $c->res->redirect($rs->first->url);
+        my $url = $rs->first;
+
+        if ($c->req->cookie('seen')) {
+            $c->res->redirect( $url->url );
+        } else {
+            $c->res->cookies->{seen} = {
+                value   => 1,
+                expires => '+3d',
+            };
+            $c->stash->{url} = $url;
+            $c->stash->{template} = 'redirect.tt';
+        }
     };
 
     if ($@) {

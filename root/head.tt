@@ -1,5 +1,8 @@
 <html>
 <head>
+[% IF meta_refresh -%]
+<meta http-equiv="Refresh" content="10;URL=[% meta_refresh | html %]" />
+[% END -%]
 <title>mixxi.jp: tinyURL for mixi.jp</title>
 <style type="text/css">
 h1,h2 { font-size: 2em }
