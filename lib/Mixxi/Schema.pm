@@ -1,11 +1,9 @@
 package Mixxi::Schema;
 use strict;
 use warnings;
-use base qw(DBIx::Class::Schema::Loader);
+use base qw(DBIx::Class::Schema);
 
-__PACKAGE__->loader_options(
-    debug => 1,
-);
+__PACKAGE__->load_classes;
 
 1;
 
