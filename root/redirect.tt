@@ -1,7 +1,0 @@
-[% INCLUDE head.tt meta_refresh=url.url %]
-
-<p>Redirecting to <a href="[% url.url | html %]">[% url.url | html %]</a></p>
-
-<p><a href="[% c.uri_for('/url') %]">Create your own NOW!</a></p>
-
-[% INCLUDE footer.tt %]

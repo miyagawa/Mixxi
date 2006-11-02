@@ -43,7 +43,7 @@ sub create : Local {
         alias => $alias || undef,
     });
 
-    $c->res->redirect($c->uri_for('/a/') . $rec->canon_path);
+    $c->res->redirect($c->uri_for('/') . $rec->canon_path);
 }
 
 sub validate : Local {

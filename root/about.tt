@@ -1,7 +1,9 @@
-[% INCLUDE head.tt %]
-Long URL: [% url.url | html %]<br />
+[% INCLUDE head.tt meta_refresh = url.url %]
+Long URL: [% url.url | html %] (Redirect in 10 seconds)<br />
 Short URL: <a href="[% c.uri_for('/') %][% url.canon_path | html %]">[% c.uri_for('/') %][% url.canon_path | html %]</a><br />
 
-<p><img src="[% c.uri_for('/qr/') %][% url.canon_path | html %]" /></p> 
+<p><img src="[% c.uri_for('/qr/') %][% url.canon_path | html %]" /></p>
+
+<p><a href="[% c.uri_for('/url') %]">Create your own NOW!</a></p>
 
 [% INCLUDE footer.tt %]

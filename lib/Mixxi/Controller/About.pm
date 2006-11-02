@@ -21,11 +21,20 @@ Catalyst Controller.
 
 =cut
 
-sub a : Global {
+sub index : Private {
     my ( $self, $c, $alias, $id ) = @_;
+
+    my $alias = $c->req->args->[0];
+    my $id    = $c->req->args->[1];
 
     my $url;
     eval {
+        $alias = $id if $alias eq 'a';
+
+        unless ($alias || $id) {
+            die "No alias nor id";
+        }
+
         if ($alias eq 'u') {
             $id = Mixxi::Schema::Url->to_id($id) or die "No id";
             $url = $c->model('DBIC::Url')->find($id);

@@ -26,24 +26,6 @@ Mixxi::Controller::Root - Root Controller for Mixxi
 
 =cut
 
-sub u : Global {
-    my ( $self, $c ) = @_;
-
-    eval {
-        my $id = $c->req->args->[0];
-        $id = Mixxi::Schema::Url->to_id($id) or die "No decodable ID";
-
-        my $url = $c->model('DBIC::Url')->find($id)
-            or die "No object with id=$id";
-
-        $c->res->redirect($url->url);
-    };
-
-    if ($@) {
-        $c->res->redirect($c->uri_for('/url'));
-    }
-}
-
 sub id : Global {
     my($self, $c) = @_;
     my $id = $c->req->args->[0];
@@ -56,28 +38,7 @@ sub id : Global {
 
 sub default : Private {
     my($self, $c) = @_;
-
-    eval {
-        my $alias = $c->req->args->[0] or die "No alias";
-        my $rs = $c->model('DBIC::Url')->search(alias => $alias);
-        $rs->count or die "No url matched $alias";
-        my $url = $rs->first;
-
-        if ($c->req->cookie('seen')) {
-            $c->res->redirect( $url->url );
-        } else {
-            $c->res->cookies->{seen} = {
-                value   => 1,
-                expires => '+3d',
-            };
-            $c->stash->{url} = $url;
-            $c->stash->{template} = 'redirect.tt';
-        }
-    };
-
-    if ($@) {
-        return $c->res->redirect($c->uri_for('/url'));
-    }
+    $c->forward('/about/index');
 }
 
 =head2 end
