@@ -9,8 +9,6 @@ Short URL: <a href="[% c.uri_for('/') %][% url.canon_path | html %]">[% c.uri_fo
 <p>[% SET qr = c.uri_for('/qr/') _ url.canon_path -%]
 <a href="[% qr | html %]"><img src="[% qr | html %]" style="border:0" /></p>
 
-<p><a href="[% c.uri_for('/url') %]">Create your own NOW!</a></p>
-
 <script language="JavaScript">
 var timer = 10;
 setTimeout(countDown, 1000);

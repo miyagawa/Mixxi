@@ -1,53 +1,5 @@
-[% INCLUDE head.tt dojo = 1 %]
+[% INCLUDE head.tt %]
 
-<script language="JavaScript">
-dojo.require('dojo.io.*');
-var cache = {};
-function validateForm() {
-  dojo.byId('error').innerHTML = '';
-  var c = cache[dojo.byId('alias').value];
-  if (c != undefined)
-     return callback(c);
-  dojo.io.bind({
-     url: "[% c.uri_for('/url/validate') %]",
-     handler: function(type, data, evt) {
-       callback(data["error"]);
-       cache[dojo.byId('alias').value] = data["error"];
-     },
-     formNode: dojo.byId('form'),
-     mimetype: "application/json"
-  });
-}
-
-function callback(error) {
-  if (error) {
-    dojo.byId('error').innerHTML = error;
-  }
-}
-</script>
-
-<p class="description"><span class="url">http://mixi.jp/show_friend.pl?id=XXXX</span> のような長いURLを <span class="url">http://mixxi.jp/{好きな名前}</span> てな感じに短かくします。</p>
-
-<form id="form" action="[% c.uri_for('/url/create') %]" method="get">
-<label for="url">URL:</label> <input type="text" id="url" name="url" value="[% (c.req.param('url') || "http://mixi.jp/show_friend.pl?id=") | html %]" size="40" onfocus="this.select()" />
-<input type="submit" value="Shorten" /><br />
-<label for="alias">Alias (optional):</label> http://mixxi.jp/<input type="text" id="alias" name="alias" size="10" value="[% c.req.param('alias') | html %]" /> <span id="error" class="error">[% error | html %]</span>
-</form>
-
-<script>
-dojo.byId('alias').onkeyup = function() {
-  if (dojo.byId('alias').value.length > 0) {
-    validateForm();
-  }
-};
-// dojo.byId('url').onblur    = validateForm;
-</script>
-
-<p id="hint"><strong>ヒント:</strong>
-<ul>
-<li>http://mixxi.jp/{Alias} リダイレクト + リンク情報</li>
-<li>http://mixxi.jp/qr/{Alias} QRコード表示</li>
-</ul>
-</p>
+このサービスは終了しました。
 
 [% INCLUDE footer.tt %]
