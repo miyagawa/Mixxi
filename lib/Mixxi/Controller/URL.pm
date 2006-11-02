@@ -59,7 +59,7 @@ sub validate : Local {
     $c->forward($c->view('JSON'));
 }
 
-my %reserved_alias = map { $_ => 1 } qw( url id );
+my %reserved_alias = map { $_ => 1 } qw( url id qr );
 
 sub validate_alias {
     my($self, $c, $alias) = @_;

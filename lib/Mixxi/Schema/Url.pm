@@ -32,14 +32,13 @@ sub to_id {
     $encoder->decode($enc);
 }
 
-sub canonical {
+sub canon_path {
     my $self = shift;
 
-    my $base = Mixxi->config->{tinyurl_base};
     if ($self->alias) {
-        return $base . $self->alias;
+        return $self->alias;
     } else {
-        return $base . "u/" . $self->id_enc;
+        return "u/" . $self->id_enc;
     }
 }
 

@@ -7,3 +7,6 @@ View::TT:
 View::JSON:
   json_driver: JSON::Syck
   expose_stash: json_data
+View::QRcode:
+  module_size: 3
+

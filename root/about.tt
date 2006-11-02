@@ -1,6 +1,4 @@
 [% INCLUDE head.tt %]
-<h3>Congrats!</h3>
-
 Long URL: [% url.url | html %]<br />
 Short URL: <a href="[% c.uri_for('/') %][% url.canon_path | html %]">[% c.uri_for('/') %][% url.canon_path | html %]</a><br />
 
