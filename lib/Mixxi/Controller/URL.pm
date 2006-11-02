@@ -64,6 +64,7 @@ my %reserved_alias = map { $_ => 1 } qw( url id );
 sub validate_alias {
     my($self, $c, $alias) = @_;
     $alias =~ /^[a-zA-Z0-9\-\_]{2,16}$/ or return;
+    $alias =~ /^[0-9]+$/ and return;
     $reserved_alias{$alias} and return;
 
     my $rs = $c->model('DBIC::Url')->search(alias => $alias);
