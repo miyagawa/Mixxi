@@ -10,6 +10,8 @@ input { background: #fff }
 .description .url {}
 .error { color: #f00 }
 .note { margin-top: 5em; font-size: 10px }
+ul { margin-left: 1em; list-style-type: none; margin-top: 0 }
+#hint { margin-top: 3em }
 </style>
 <script src="[% c.uri_for('/static/dojo/dojo.js') %]"></script>
 </head>

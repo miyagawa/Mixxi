@@ -43,4 +43,12 @@ dojo.byId('alias').onkeyup = function() {
 // dojo.byId('url').onblur    = validateForm;
 </script>
 
+<p id="hint"><strong>ヒント:</strong>
+<ul>
+<li>http://mixxi.jp/{Alias} リダイレクト</li>
+<li>http://mixxi.jp/a/{Alias} リンク情報表示</li>
+<li>http://mixxi.jp/qr/{Alias} QRコード表示</li>
+</ul>
+</p>
+
 [% INCLUDE footer.tt %]
