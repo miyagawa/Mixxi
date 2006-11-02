@@ -43,7 +43,7 @@ sub create : Local {
         alias => $alias || undef,
     });
 
-    $c->stash->{url} = $rec;
+    $c->res->redirect($c->uri_for('/a/') . $rec->canon_path);
 }
 
 sub validate : Local {
