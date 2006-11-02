@@ -43,4 +43,4 @@ dojo.byId('alias').onkeyup = function() {
 // dojo.byId('url').onblur    = validateForm;
 </script>
 
-
+[% INCLUDE footer.tt %]

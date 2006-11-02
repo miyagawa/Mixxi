@@ -3,3 +3,5 @@
 
 Long URL: [% url.url | html %]<br />
 Short URL: <a href="[% url.canonical | html %]">[% url.canonical | html %]</a>
+
+[% INCLUDE footer.tt %]

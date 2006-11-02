@@ -9,7 +9,7 @@ input { background: #fff }
 .description { }
 .description .url {}
 .error { color: #f00 }
-
+.note { margin-top: 5em; font-size: 10px }
 </style>
 <script src="[% c.uri_for('/static/dojo/dojo.js') %]"></script>
 </head>
