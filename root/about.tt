@@ -6,7 +6,7 @@
 Long URL: [% url.url | html %]<br />
 Short URL: <a href="[% c.uri_for('/') %][% url.canon_path | html %]">[% c.uri_for('/') %][% url.canon_path | html %]</a></p>
 
-<p>[% SET qr = c.uri_for('/qr') _ uri.canon_path %]
+<p>[% SET qr = c.uri_for('/qr/') _ url.canon_path -%]
 <a href="[% qr | html %]"><img src="[% qr | html %]" style="border:0" /></p>
 
 <p><a href="[% c.uri_for('/url') %]">Create your own NOW!</a></p>
